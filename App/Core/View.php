@@ -33,12 +33,15 @@ class View
 
     public function getFile($filepath)
     {
+ 
         $filename = VIEW_PATH . $filepath . ".php";
         if (file_exists($filename))
         {
             include_once $filename;
         }
     }
+
+ 
     /**
      * call: armar la vista completa, con footer y header,
      * @access public

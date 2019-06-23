@@ -8,7 +8,6 @@ class BaseController
 
     public function __construct()
     {
-        // Session::init();
         $this->View = New View;
     }
 

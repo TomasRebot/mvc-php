@@ -7,7 +7,8 @@ use App\Helper\Input;
 trait authenticable
 {
     
-  
+    
+
     public function login()
     {
         if(!isset($this->username))
@@ -19,19 +20,12 @@ trait authenticable
             Session::init();
             $this->status = 1;
             Session::put('usuario', $this->data()->id);
-            return true;
+            return $this;
         }
         else {
             Redirect::back('El password no coincide');
         }
     }
-
-    public function logout()
-    {
-        $this->status = 0;
-        Session::forget('usuario',$this->data()->id);
-    }
-
     
 
 }

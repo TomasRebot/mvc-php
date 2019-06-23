@@ -13,6 +13,7 @@ class Session {
      * @return boolean
      * 
      */
+
     public static function delete($key) {
         if (self::exists($key)) {
             unset($_SESSION[$key]);
@@ -64,6 +65,7 @@ class Session {
         if (session_id() == "") {
             session_start();
         }
+      
     }
     /**
      * Put: Agrega un valor a la sesion.
@@ -81,9 +83,7 @@ class Session {
     public function hasKey($key)
     {
         return self::get($key);
-    }
-
-    
+    }    
     /**
      * forget: elimina un valor a la sesion.
      * @access public

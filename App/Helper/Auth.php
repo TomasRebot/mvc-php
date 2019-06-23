@@ -11,7 +11,6 @@ class Auth {
      */
     public static function checkAuthenticated($redirect = "login") {
         Session::init();
-     
         if (!Session::exists("usuario")) {
             Session::flush();
             Redirect::to('../login');
@@ -25,9 +24,10 @@ class Auth {
      * @since 1.0.2
      */
     public static function checkUnauthenticated($redirect = "") {
+        
         Session::init();
         if (Session::exists('usuario')) {
-            Redirect::to($redirect);
+            Redirect::to('index/panel');
         }
     }
     public static function user()

@@ -1,7 +1,6 @@
 
 <section class="hero-area">
     <div class="hero-slides owl-carousel">
-    
     <!-- Slide de Casos de uso -->
     <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(public/img/usuarios.jpg);">
             <div class="container h-100">

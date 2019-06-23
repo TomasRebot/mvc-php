@@ -24,13 +24,25 @@ class LoginController extends BaseController
     {
         $this->View->call('login');
     }
+
     public function attemptlogin()
     {
         (Usuario::where(['username', Input::post("username")])->login()) ? self::redirectIfAuthenticated(): false;
     }
+    
     public function redirectIfAuthenticated()
     {
         Redirect::to($this->redirect);
+    }
+
+    public function logout()
+    {
+        Session::init();
+        if (Session::exists("usuario")) {
+            Session::flush();
+        }
+       Redirect::to('../');
+      
     }
 
 
