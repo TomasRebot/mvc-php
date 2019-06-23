@@ -4,9 +4,9 @@ return [
     // Core Config
     // =========================================================================
     "DATABASE_HOST" => "localhost",
-    "DATABASE_NAME" => "modulo_seguridad",
-    "DATABASE_USERNAME" => "tomas",
-    "DATABASE_PASSWORD" => "homar666",
+    "DATABASE_NAME" => "moduloseguridad",
+    "DATABASE_USERNAME" => "root",
+    "DATABASE_PASSWORD" => "",
     // 
     // Cookie Config
     // =========================================================================
@@ -23,7 +23,7 @@ return [
     "SESSION_FLASH_WARNING" => "warning",
     "SESSION_TOKEN" => "token",
     "SESSION_TOKEN_TIME" => "token_time",
-    "SESSION_USER" => "user",
+    "SESSION_USER" => "usuario",
     "" => "",
     // 
     // Strings Config

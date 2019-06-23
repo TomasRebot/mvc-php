@@ -1,4 +1,5 @@
 <?php namespace App\Core;
+use App\Helper\Session;
 
 
 class View
@@ -6,6 +7,9 @@ class View
 
     protected $titulo;
 
+    protected $object;
+
+    protected $errores = [];
     /**
      * addData: mapea y agrega atributos dinamicos, clave valor del array que le pasan
      * preferentemente recibir json
@@ -44,6 +48,7 @@ class View
      */
     public function call($filepath, array $data = [])
     {
+        
         $this->addData($data);
         $this->getFile(DEFAULT_HEADER_PATH);
         $this->getFile($filepath);
@@ -60,6 +65,32 @@ class View
     {
         $this->addData($data);
         $this->getFile($filepath);
+    }
+    
+    public function component($component)
+    {
+
+        $path = VIEW_PATH . 'components/'. $component .'.php';
+        
+        if(file_exists($path))
+        {
+            include_once $path;
+        }
+    }
+
+    public function errores()
+    {
+        $this->errores = Session::get('errorbag');
+        if(is_array(Session::get('errorbag')))
+        {
+            foreach(Session::get('errorbag') as $indice =>$error)
+            $this->errores[$indice] = $error;
+        }
+        return $this->errores;
+    }
+    public static function clean($messages = 'errorbag')
+    {
+        Session::forget($messages);
     }
 
 

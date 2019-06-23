@@ -1,15 +1,14 @@
 <?php  namespace App\Core;
 
-
 use Exception;
 use ReflectionClass;
 use ReflectionMethod;
 use App\Helper\Input;
 use App\Helper\Redirect;
 
+
 class Aplication 
 {
-
     /** @var mixed El controlador por defecto. */
 
     private $_clase = DEFAULT_CONTROLLER;
@@ -51,10 +50,10 @@ class Aplication
         }
         if (!class_exists($this->_clase))
         {
-            Redirect::to(404);
+            Redirect::to(REDIRECT_BASE_PATH);
             throw new Exception("El controlador {$this->_clase} No existe!");
         }
-       $this->_clase = new $this->_clase;
+       $this->_clase = New $this->_clase;
     }
 
     /**
@@ -113,7 +112,8 @@ class Aplication
      * @return void
 
      */
-    public function run() {
+    public function run()
+    {
         call_user_func_array([$this->_clase, $this->_metodo], $this->_parametros);
     }
 }

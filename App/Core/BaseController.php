@@ -1,6 +1,6 @@
 <?php namespace App\Core;
 
-use App\Helper;
+use App\Helper\Session;
 
 class BaseController
 {
@@ -8,9 +8,7 @@ class BaseController
 
     public function __construct()
     {
-
-        Helper\Session::init();
-
+        // Session::init();
         $this->View = New View;
     }
 

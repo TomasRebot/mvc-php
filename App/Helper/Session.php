@@ -26,7 +26,7 @@ class Session {
      * @return void
      * 
      */
-    public static function destroy() {
+    public static function flush() {
         session_destroy();
     }
     /**
@@ -50,6 +50,7 @@ class Session {
         if (self::exists($key)) {
             return($_SESSION[$key]);
         }
+        return false;
     }
     /**
      * Init: Inicia la sesion
@@ -57,7 +58,8 @@ class Session {
      * @return void
      * 
      */
-    public static function init() {
+    public static function init()
+    {
         // Si no existe, iniciar sesion
         if (session_id() == "") {
             session_start();
@@ -73,5 +75,24 @@ class Session {
      */
     public static function put($key, $value) {
         return($_SESSION[$key] = $value);
+    }
+
+
+    public function hasKey($key)
+    {
+        return self::get($key);
+    }
+
+    
+    /**
+     * forget: elimina un valor a la sesion.
+     * @access public
+     * @param string $key
+     * @return void
+     * 
+     */
+    public function forget($key)
+    {
+        session_unset($key);
     }
 }
