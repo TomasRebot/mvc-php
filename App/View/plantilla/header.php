@@ -10,7 +10,7 @@
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="<?php $this->asset('css/style.css') ?>">
 </head>
 <body>
 

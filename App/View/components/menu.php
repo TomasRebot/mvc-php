@@ -5,7 +5,16 @@
     </div>
     <!-- Logo Area -->
     <div class="logo-area">
-        <a href="index.html">tomas</a>
+    <?php
+        
+        if(App\Helper\Auth::check())
+        {
+            echo "<a href='index.html'>Bienvenido $this->nombre</a>";            
+        }
+        else {
+            echo '<a href="index.html">Bienvenido, inicia sesion para utilizar el programa</a>';
+        }
+        ?>
     </div>
     <!-- Nav -->
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
@@ -30,7 +39,12 @@
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="elements.html">Elements</a>
+                <?php if(App\Helper\Auth::check())
+                {    
+                    echo '<a class="nav-link" href="../login/logout">Cerrar sesion</a>';
+                }else {
+                    echo '<a class="nav-link" href="login">Iniciar sesion</a>';
+                }?>
                 </li>
             </ul>
         </nav>

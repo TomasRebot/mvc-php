@@ -17,7 +17,6 @@ class IndexController extends BaseController
     {
         Auth::checkAuthenticated();
         return $this->View->call('panel', Auth::user()->toArray());
-
     }
 
 }

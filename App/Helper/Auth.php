@@ -32,6 +32,12 @@ class Auth {
     }
     public static function user()
     {
-        return Usuario::where(['id', Session::get('usuario')]);
+        return ( Usuario::where(['id', Session::get('usuario')]));
     }
+
+    public function check()
+    {
+        return Session::exists('usuario');
+    }
+
 }

@@ -11,6 +11,4 @@ class BaseController
         $this->View = New View;
     }
 
-   
-    
 }

@@ -41,6 +41,23 @@ class View
         }
     }
 
+
+
+    private function asset($filename)
+    {
+    
+        $filename = 'public/'.$filename;
+        $a = explode('/',$_SERVER["REQUEST_URI"]);
+      
+        
+        if(count($a) > 3)
+        {
+            $filename = '../'.$filename;
+        }
+         echo $filename;
+        
+
+    }
  
     /**
      * call: armar la vista completa, con footer y header,
@@ -51,7 +68,7 @@ class View
      */
     public function call($filepath, array $data = [])
     {
-        
+        Session::init();
         $this->addData($data);
         $this->getFile(DEFAULT_HEADER_PATH);
         $this->getFile($filepath);
@@ -79,6 +96,10 @@ class View
         {
             include_once $path;
         }
+    }
+    public function withUserData(Usuario $usuario)
+    {
+        $this->object = $usuario;
     }
 
     public function errores()
