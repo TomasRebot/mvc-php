@@ -27,6 +27,8 @@ class Hash
     {
         return(self::make(uniqid()));
     }
+
+    
     public static function compare($key, $user)
     {
         return password_verify($key, $user->data()->password);

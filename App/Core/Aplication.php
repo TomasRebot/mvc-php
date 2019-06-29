@@ -4,7 +4,10 @@ use Exception;
 use ReflectionClass;
 use ReflectionMethod;
 use App\Helper\Input;
+use App\Helper\Hash;
 use App\Helper\Redirect;
+use App\Model\Usuario;
+use App\Model\Grupo;
 
 
 class Aplication 
@@ -23,6 +26,11 @@ class Aplication
 
     public function __construct()
     {
+        // Grupo::create([
+        //     'nombre' => 'Gestores de acciones',
+        //     'descripcion' => 'Los usuarios asignados pueden ',
+        // ]);
+        
         $this->_parseURL();
         try {
             $this->_getClass();
@@ -70,6 +78,7 @@ class Aplication
             unset($this->_parametros[1]);
         }
         // Verificar si existe el metodo.
+            
         if (!(new ReflectionClass($this->_clase))->hasMethod($this->_metodo)) {
             throw new Exception("The controller method {$this->_metodo} does not exist!");
         }

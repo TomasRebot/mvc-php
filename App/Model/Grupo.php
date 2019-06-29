@@ -10,10 +10,21 @@ use App\Traits\authenticable;
  *
  * @author tomi rebot <tomas.devel@gmal.com>
  */
-class Usuario extends Model
+class Grupo extends Model
 {
     use authenticable;
+
     
+    protected $table = 'grupos';
+
+    protected $fillable = [
+       
+    ];
+
+    protected $hidden = [
+
+    ];
+
     /**
      * Create Usuario: Inserts a new Usuario into the database, returning the unique
      * Usuario if successful, otherwise returns false.
@@ -23,15 +34,5 @@ class Usuario extends Model
      * @since 1.0.3
      * @throws Exception
      */
-    protected $table = 'usuarios';
-
-    protected $fillable = [
-        'nombre','apellido','email','username'
-    ];
-
-    protected $hidden = [
-        'password'
-    ];
-   
-
+    
 }

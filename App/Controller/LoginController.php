@@ -27,7 +27,7 @@ class LoginController extends BaseController
 
     public function attemptlogin()
     {
-        (Usuario::where(['username', Input::post("username")])->login()) ? self::redirectIfAuthenticated(): false;
+        ( Usuario::where(['username', Input::post("username")] )->login()) ? self::redirectIfAuthenticated() : false;
     }
     
     public function redirectIfAuthenticated()

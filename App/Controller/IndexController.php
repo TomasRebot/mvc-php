@@ -10,12 +10,13 @@ class IndexController extends BaseController
    
     public function index()
     {
-        return $this->View->call('index');
+        return $this->View->call('index', ["id" => '1']);
     }
 
     public function panel()
     {
         Auth::checkAuthenticated();
+        
         return $this->View->call('panel', Auth::user()->toArray());
     }
 

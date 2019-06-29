@@ -121,12 +121,14 @@ class DB
      */
     public function insert($table, array $fields) {
         if (count($fields)) {
+           
             $params = [];
             foreach ($fields as $key => $value) {
                 $params[":{$key}"] = $value;
             }
             $columns = implode("`, `", array_keys($fields));
             $values = implode(", ", array_keys($params));
+         
             if (!$this->query("INSERT INTO `{$table}` (`{$columns}`) VALUES({$values})", $params)->error()) {
                 return($this->_PDO->lastInsertId());
             }
