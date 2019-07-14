@@ -97,6 +97,7 @@ class Aplication
      * @throws Exception
      */
     private function _getParams() {
+        
         $this->_parametros = $this->_parametros ? array_values($this->_parametros) : [];
     }
 

@@ -1,7 +1,7 @@
 <?php namespace App\Model;
 use Exception;
 use App\Core\Model as Model;
-use App\Helper;
+
 use App\Traits\authenticable;
 
 
@@ -10,25 +10,30 @@ use App\Traits\authenticable;
  *
  * @author tomi rebot <tomas.devel@gmal.com>
  */
-class Grupo extends Model
+class Accion extends Model
 {
     use authenticable;
 
     
-    protected $table = 'grupos';
+    protected $table = 'acciones';
     
-    public $belongsTo = 'acciones';
+    public $belongsTo = '';
 
 
     protected $fillable = [
-       'id',
+       'clave',
        'descripcion',
-       'nombre',
+       'icon',
+       'action'
     ];
+
 
     protected $hidden = [
 
     ];
+
+    
+    
 
     /**
      * Create Usuario: Inserts a new Usuario into the database, returning the unique
@@ -40,10 +45,6 @@ class Grupo extends Model
      * @throws Exception
      */
 
-    public function acciones()
-    {
-        return $this->with('accion', $this);
-    }
-    
+   
     
 }

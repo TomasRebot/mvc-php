@@ -13,7 +13,7 @@ class Auth {
         Session::init();
         if (!Session::exists("usuario")) {
             Session::flush();
-            Redirect::to('../login');
+            Redirect::to($redirect);
         }
     }
     /**
@@ -23,21 +23,26 @@ class Auth {
      * @param string $redirect
      * @since 1.0.2
      */
-    public static function checkUnauthenticated($redirect = "") {
+    public static function checkUnauthenticated($redirect = "index/panel") {
         
         Session::init();
         if (Session::exists('usuario')) {
-            Redirect::to('index/panel');
+            Redirect::to($redirect);
         }
     }
     public static function user()
     {
+        Session::init();
         return ( Usuario::where(['id', Session::get('usuario')]));
     }
 
+   
     public function check()
     {
-        return Session::exists('usuario');
+        return (!empty(self::user()));
+
     }
+
+    
 
 }

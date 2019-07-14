@@ -38,7 +38,7 @@
         
         <!-- Slide de Casos de uso -->
         
-        <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(public/img/login.jpg);">
+        <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(public/img/agregar-usuario.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-end">
                     <div class="col-12">
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-        <!-- Slide de Casos de uso -->
+        
         <!-- Slide de Casos de uso -->
 
         <!-- Slide de Casos de uso -->

@@ -6,6 +6,7 @@
  */
 class Input {
     
+
     /**
      * Exists: Determina si existe o no la variable $_GET o $_POST
      *  en una request
@@ -22,6 +23,7 @@ class Input {
         }
         return false;
     }
+
     /**
      * Get: Retorna si la variable superglobal esta seteada en get
      * de lo contrario retorna el string default
@@ -46,4 +48,19 @@ class Input {
     public static function post($key, $default = "") {
         return(isset($_POST[$key]) ? $_POST[$key] : $default);
     }
+
+    public static final function formSanatized($without = [])
+    {
+        foreach($_POST as $key => $value)
+        {
+            if(!in_array($key, $without))
+            {
+                $final[$key] = $value;
+            }
+        }
+        
+       
+        return $final;
+    }
+    
 }

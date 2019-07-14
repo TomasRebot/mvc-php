@@ -1,4 +1,3 @@
-
 <div class="hero-area d-flex align-items-center" >
     <div class="hero-thumbnail equalize bg-img" style="background-image: url(img/contact.jpg);min-height:100vh!important;"></div>
     <div class="hero-content equalize">

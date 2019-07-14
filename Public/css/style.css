@@ -23,7 +23,9 @@
   margin: 0;
   padding: 0; }
 
+  
 body {
+  background-color: white!important;
   font-family: "Roboto", sans-serif; }
 
 h1,
@@ -435,16 +437,17 @@ img {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%); }
 
 .grids {
+  display: none!important;
   position: fixed;
   width: 100%;
   height: 100%;
   z-index: -1; }
   .grids div {
-    width: 1px;
+    width: 0px;
     height: 100%;
     background-color: #e0e3e4; }
     .grids div:nth-child(5) {
-      background-color: #bababa; }
+      background-color: #130000; }
     .grids div:first-child, .grids div:last-child {
       background-color: transparent; }
 
@@ -1464,4 +1467,7 @@ img {
 /*# sourceMappingURL=style.css.map */
 .m-top-10{
   margin-top:10vh!important;
+}
+.container{
+  min-height: 100%!important;
 }

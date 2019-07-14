@@ -7,7 +7,7 @@ class View
 
     protected $titulo;
 
-    protected $object;
+    protected $object = [];
 
     protected $errores = [];
     /**
@@ -17,11 +17,22 @@ class View
      * @param array $data [preferent key=>falue]
      * @return void
      */
-    public function addData(array $data)
-    {
+    public function addData( $data)
+    {  
         foreach ($data as $key => $value)
         {
-            $this->{$key} = $value;
+            // if(is_object($value))
+            // {
+            //     // $this->object = $value;
+            //     $this->{$key} = $value;
+            //     //$this->object->{$value->modelName()} = $value;
+                
+            // }
+            // else
+            // {
+                
+                $this->{$key} = $value;
+            //}
         }
     }
     /**
@@ -41,8 +52,6 @@ class View
         }
     }
 
-
-
     private function asset($filename)
     {
     
@@ -55,7 +64,6 @@ class View
             $filename = '../'.$filename;
         }
          echo $filename;
-        
 
     }
  
@@ -66,7 +74,7 @@ class View
      * @param array $data [clave => valor]
      * @return void
      */
-    public function call($filepath, array $data = [])
+    public function call($filepath,  $data = [])
     {
         Session::init();
         $this->addData($data);

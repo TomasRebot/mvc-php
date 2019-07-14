@@ -55,6 +55,7 @@ class DB
                 }
             }
         } else {
+            
             if (!$this->query("{$action} FROM `{$table}`")->error()) {
                 return $this;
             }
@@ -124,12 +125,15 @@ class DB
            
             $params = [];
             foreach ($fields as $key => $value) {
-                $params[":{$key}"] = $value;
+                {
+                    $params[":{$key}"] = $value;
+                }
             }
             $columns = implode("`, `", array_keys($fields));
             $values = implode(", ", array_keys($params));
-         
+           
             if (!$this->query("INSERT INTO `{$table}` (`{$columns}`) VALUES({$values})", $params)->error()) {
+                
                 return($this->_PDO->lastInsertId());
             }
         }
@@ -161,6 +165,8 @@ class DB
             }
         }
         return $this;
+
+
     }
     /**
      * Results:
@@ -183,6 +189,38 @@ class DB
     public function select($table, array $where = []) {
         return($this->action('SELECT *', $table, $where));
     }
+    
+    public function selectAllFrom($table)
+    {
+        return ($this->action('SELECT *', $table))->_results;
+
+    }
+
+
+
+
+    public function linkTo($linkedTable, $object)
+    {
+        $betweenTable = $object->belongsTo.'_'.$object->modelNamePlural();
+        $firstBinding = 'id_'.$linkedTable;
+        $firstTableBinding = 'id_'.$object->modelName();
+        $joinTable = $object->belongsTo;
+        $objectJoinableId = intval($object->data()->id);
+        $sql =
+        "SELECT
+            $joinTable.*
+        
+        FROM
+            {$betweenTable}
+            INNER JOIN {$joinTable} ON ({$joinTable}.id = {$betweenTable}.{$firstBinding})
+            
+        WHERE {$betweenTable}.{$firstTableBinding} = {$objectJoinableId};
+        ";
+         //print_r($sql);
+        return $this->query($sql)->_results;
+        
+    }
+
     /**
      * Update:
      * @access public
@@ -211,7 +249,7 @@ class DB
         }
         return false;
     }
-
+    
 
 
     

@@ -37,7 +37,7 @@
                 <div class="menu-area d-flex justify-content-between">
                     <!-- Logo Area  -->
                     <div class="logo-area">
-                        <a href="index.html">Trabajo de campo</a>
+                        <a href="/modulo-seguridad">Trabajo de campo</a>
                     </div>
                     <div class="menu-content-area d-flex align-items-center">
                         <!-- Header Social Area -->

@@ -9,7 +9,7 @@
         
         if(App\Helper\Auth::check())
         {
-            echo "<a href='index.html'>Bienvenido $this->nombre</a>";            
+             echo "<a href='index.html'>Bienvenido {$this->usuario->nombre}</a>";            
         }
         else {
             echo '<a href="index.html">Bienvenido, inicia sesion para utilizar el programa</a>';

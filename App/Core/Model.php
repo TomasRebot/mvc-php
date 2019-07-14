@@ -34,7 +34,6 @@ class Model {
 
     public static function where( $params = []) 
     {
-
         $object = self::instance();
         $data = $object->Db->select($object->table, [$params[0], "=", $params[1]]);
         if($data->count())
@@ -55,19 +54,31 @@ class Model {
         return false;
     }
 
-
+    public function with($linkedTable, $object)
+    {
+        
+        return $this->Db->linkTo($linkedTable, $object);
+    }
+    
 
     public function create(array $fields) {
         
         $object = self::instance();
-       
+    
         if (!$modelId = $object->Db->insert($object->table , $fields))
         {
-           echo "se rompio creando el usuario en usuario modelo,";
+         return false;
         }
         
         return $object->where(['id', $modelId]);
+    }
+
+
+    public  function all()
+    {
+        $object = self::instance();
         
+        return $object->Db->selectAllFrom($object->table);;
     }
     
     public function update(array $fields, $recordID = null) {
@@ -84,11 +95,18 @@ class Model {
         else return "No se pudo modificar";
         //return($this->Db->update($this->table, $recordID, $fields));
     }
+    public function modelName()
+    {
+        $modelName = explode('\\', get_class($this));
+        return strtolower($modelName[2]);
+    }
 
+    public function modelNamePlural()
+    {
+        $modelName = explode('\\', get_class($this));
+        return strtolower($modelName[2].'s');
+    }
 
-
-
-   
 
     public function exists()
     {

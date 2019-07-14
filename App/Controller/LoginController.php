@@ -11,7 +11,6 @@ use App\Helper\Auth;
 class LoginController extends BaseController
 {
 
-    
     protected $redirect ='../index/panel';
 
     public function index()
