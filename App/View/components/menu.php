@@ -9,10 +9,10 @@
         
         if(App\Helper\Auth::check())
         {
-             echo "<a href='index.html'>Bienvenido {$this->usuario->nombre}</a>";            
+             echo "<a href='#'>Bienvenido {$this->usuario->nombre}</a>";            
         }
         else {
-            echo '<a href="index.html">Bienvenido, inicia sesion para utilizar el programa</a>';
+            echo '<a href="#">Bienvenido, inicia sesion para utilizar el programa</a>';
         }
         ?>
     </div>
@@ -21,16 +21,16 @@
         <nav>
             <ul>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about-me.html">About Me</a>
+                    <a class="nav-link" href="#">Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="services.html">Services</a>
+                    <a class="nav-link" href="#">Panel</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    <a class="nav-link" href="#">algo mas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="blog.html">Blog</a>

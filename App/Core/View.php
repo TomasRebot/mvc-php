@@ -55,9 +55,18 @@ class View
     private function asset($filename)
     {
     
-        $filename = 'public/'.$filename;
+        if(APP_ENV == 'production')
+        {
+            $filename = 'public_html/'.$filename;
+        }
+        else {
+            $filename = 'public/'.$filename;
+            
+        }
+        
+        
         $a = explode('/',$_SERVER["REQUEST_URI"]);
-      
+        
         
         if(count($a) > 3)
         {

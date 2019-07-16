@@ -32,6 +32,7 @@ class Redirect {
         {
             Session::put('errorbag', $message);
         }
+        
         header('Location: ' .$_SERVER['HTTP_REFERER']);
     }
 }

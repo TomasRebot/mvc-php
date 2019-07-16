@@ -80,6 +80,8 @@ class Aplication
         // Verificar si existe el metodo.
             
         if (!(new ReflectionClass($this->_clase))->hasMethod($this->_metodo)) {
+
+            
             throw new Exception("The controller method {$this->_metodo} does not exist!");
         }
         //  Verificar si el metodo es publico.

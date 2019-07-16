@@ -30,8 +30,6 @@ class UserController extends BaseController
     }
     public function store()
     {
-        
-        
         try
         {
             if(Input::post('formId') == 'usuarios')
@@ -49,6 +47,8 @@ class UserController extends BaseController
         if(!$user){
             Redirect::back('lo siento, ese usuario ya existe');
         }
+        //Redirect::to('../index/panel');
+
 
 
     }

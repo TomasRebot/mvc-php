@@ -14,7 +14,7 @@ class IndexController extends BaseController
 
     public function panel()
     {
-        Auth::checkAuthenticated();
+        Auth::checkAuthenticated('../login');
         $grupos = [];
         foreach (Auth::user()->grupos() as $grupo)
         {

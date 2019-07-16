@@ -33,6 +33,7 @@ define("REDIRECT_BASE_PATH", "/modulo-seguridad/");
 
 
 define("APP_PROTOCOL", stripos($_SERVER["SERVER_PROTOCOL"], "https") === true ? "https://" : "http://");
+define("APP_ENV", 'local');
 
 define("CONTROLLER_PATH", "\App\Controller\\");
 
